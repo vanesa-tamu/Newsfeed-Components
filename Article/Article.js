@@ -99,6 +99,7 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
@@ -112,3 +113,46 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function printingPress(t, d, p1, p2, p3){
+  const article = document.createElement('div')
+  const articleT = document.createElement('h2')
+  const date = document.createElement('p')
+  const pOne = document.createElement('p')
+  const pTwo = document.createElement('p')
+  const pThree = document.createElement('p')
+  const button = document.createElement('span')
+
+
+  article.appendChild(articleT)
+  article.appendChild(date)
+  article.appendChild(button)
+  article.appendChild(pOne)
+  article.appendChild(pTwo)
+  article.appendChild(pThree)
+
+  article.classList.add('article')
+  date.classList.add('date')
+  button.classList.add('expandButton')
+
+  articleT.textContent = t
+  date.textContent = d
+  pOne.textContent = p1
+  pTwo.textContent = p2
+  pThree.textContent = p3
+
+  button.addEventListener('click', () => {
+    article.classList.toggle("article-open");
+  })
+
+  return article 
+
+}
+
+const articleAccordion = document.querySelector('.articles')
+data.map(art => {
+  console.log(art)
+  return articleAccordion.appendChild(printingPress(art.title, art.date, art.firstParagraph, art.secondParagraph, art.thirdParagraph))
+})
+
+articleAccordion.appendChild(printingPress('Title', 'Date', 'p1', 'p2', 'p3'))
+
