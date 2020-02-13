@@ -113,6 +113,7 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
 function printingPress(t, d, p1, p2, p3){
   const article = document.createElement('div')
   const articleT = document.createElement('h2')
@@ -134,11 +135,13 @@ function printingPress(t, d, p1, p2, p3){
   date.classList.add('date')
   button.classList.add('expandButton')
 
+
   articleT.textContent = t
   date.textContent = d
   pOne.textContent = p1
   pTwo.textContent = p2
   pThree.textContent = p3
+  button.textContent = 'click here'
 
   button.addEventListener('click', () => {
     article.classList.toggle("article-open");
@@ -151,8 +154,10 @@ function printingPress(t, d, p1, p2, p3){
 const articleAccordion = document.querySelector('.articles')
 data.map(art => {
   console.log(art)
-  return articleAccordion.appendChild(printingPress(art.title, art.date, art.firstParagraph, art.secondParagraph, art.thirdParagraph))
+  articleAccordion.appendChild(printingPress(art.title, art.date, art.firstParagraph, art.secondParagraph, art.thirdParagraph))
 })
+
+
 
 articleAccordion.appendChild(printingPress('Title', 'Date', 'p1', 'p2', 'p3'))
 
